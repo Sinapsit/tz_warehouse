@@ -16,5 +16,8 @@ elif configuration == 'development':
 elif configuration == 'production':
     # production server settings
     from .production import *
+elif configuration == 'heroku':
+    # production server settings
+    from .heroku import *
 else:
     from .base import *
