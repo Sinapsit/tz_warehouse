@@ -15,9 +15,9 @@ class Order(project_mixins.ProjectBaseMixin):
     number = models.CharField(
         _("Order number"), max_length=128, db_index=True, unique=True)
 
-    user = models.ForeignKey(
-        AUTH_USER_MODEL, related_name='orders', null=True, blank=True,
-        verbose_name=_("User"), on_delete=models.SET_NULL)
+    # user = models.ForeignKey(
+    #     AUTH_USER_MODEL, related_name='orders', null=True, blank=True,
+    #     verbose_name=_("User"), on_delete=models.SET_NULL)
 
     currency = models.CharField(
         _("Currency"), max_length=12, default=DEFAULT_CURRENCY)

@@ -20,7 +20,7 @@ class OrderTestCase(APITestCase):
         print("End test order app\n")
 
     def setUp(self):
-        user = get_user_model().objects.create_user('Jon Dow', password='Jon42dow')
+        # user = get_user_model().objects.create_user('Jon Dow', password='Jon42dow')
         Order.objects.create(
             **{
                 "created": "2018-04-26T10:54:04.541456Z",
@@ -32,7 +32,7 @@ class OrderTestCase(APITestCase):
                 "total_excl_tax": "56.00",
                 "shipping_incl_tax": "67.00",
                 "shipping_excl_tax": "78.00",
-                "user": user
+                # "user": user
             }
         )
 

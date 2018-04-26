@@ -50,7 +50,8 @@ CONTRIB_APPS = [
 ]
 
 PROJECT_APPS = [
-    'order.apps.OrderConfig'
+    'order.apps.OrderConfig',
+    'configuration.apps.ConfigurationConfig'
 ]
 
 EXTERNAL_APPS = [
@@ -58,6 +59,7 @@ EXTERNAL_APPS = [
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'django_filters',
+    'solo'
 ]
 
 
