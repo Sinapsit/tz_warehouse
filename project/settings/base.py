@@ -49,9 +49,16 @@ CONTRIB_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    'order.apps.OrderConfig'
+]
 
-EXTERNAL_APPS = []
+EXTERNAL_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_swagger',
+    'django_filters',
+]
 
 
 INSTALLED_APPS = CONTRIB_APPS + PROJECT_APPS + EXTERNAL_APPS
@@ -136,3 +143,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+DEFAULT_CURRENCY = 'USD'
