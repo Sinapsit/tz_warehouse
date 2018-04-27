@@ -12,7 +12,7 @@ class BaseConnector(object):
         data_status = {
             'status': data['status'],
         }
-        url = f'{self.server_url}/order/item/{order.number}/'
+        url = f'{self.server_url}/order/item/{self.instance.number}/'
         self.send(url, data_status)
 
     def create_order(self):
