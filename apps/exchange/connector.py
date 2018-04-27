@@ -11,7 +11,7 @@ class BaseConnector(object):
         order = Order.objects.get(id=self.instance_id)
         data = self.get_serializer(order)
         data_status = data['status']
-        url = f'{self.server_url}/order/item/{self.instance_id}'
+        url = f'{self.server_url}/order/item/{order.number}'
         resp = requests.patch(url, data=data_status)
 
     def create_order(self):
