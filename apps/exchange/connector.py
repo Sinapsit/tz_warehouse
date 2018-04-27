@@ -13,17 +13,22 @@ class BaseConnector(object):
             'status': data['status'],
         }
         url = f'{self.server_url}/order/item/{self.instance.number}/'
-        self.send(url, data_status)
+        self.send(url, data_status, method='patch')
 
     def create_order(self):
         url = f'{self.server_url}/order/create/'
         data = self.get_serializer(self.instance)
         for i in ['id', 'synced']:
             del data[i]
-        self.send(url, data)
+        self.send(url, data, method='post')
 
-    def send(self, url, data,):
-        resp = requests.post(url, data=data)
+    def send(self, url, data, method):
+        request = {
+            'post': requests.post,
+            'patch': requests.patch,
+        }
+        resp = request[method](url, data=data)
+        print(resp.status_code, resp.text)
         if resp.status_code == 200 or resp.status_code == 201:
             self.instance.synced = True
         else:
