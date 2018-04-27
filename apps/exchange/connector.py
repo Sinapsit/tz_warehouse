@@ -1,5 +1,6 @@
 import requests
 from order.models import Order
+import json
 
 
 class BaseConnector(object):
@@ -10,9 +11,16 @@ class BaseConnector(object):
     def sync_status(self):
         order = Order.objects.get(id=self.instance_id)
         data = self.get_serializer(order)
-        data_status = data['status']
-        url = f'{self.server_url}/order/item/{order.number}'
+        data_status = {
+            'status': data['status'],
+        }
+        # data_status = json.dumps(data_status)
+        print(data_status)
+        url = f'{self.server_url}/order/item/{order.number}/'
+        print(url)
         resp = requests.patch(url, data=data_status)
+        print(resp.status_code)
+        print(resp.text)
 
     def create_order(self):
         url = f'{self.server_url}/order/create/'
