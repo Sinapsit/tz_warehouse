@@ -37,4 +37,5 @@ class Order(project_mixins.ProjectBaseMixin):
     shipping_excl_tax = models.DecimalField(
         _("Shipping charge (excl. tax)"), decimal_places=2, max_digits=12,
         default=0)
+    synced = models.BooleanField(_("Synced"), default=False)
 

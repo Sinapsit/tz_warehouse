@@ -10,6 +10,7 @@ class OrderAdmin(admin.ModelAdmin):
         'number',
         'created',
         'modified',
+        'synced'
     ]
 
     def save_model(self, request, obj, form, change):
