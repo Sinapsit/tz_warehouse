@@ -1,3 +1,5 @@
 from django.contrib import admin
+from solo.admin import SingletonModelAdmin
+from configuration.models import RemoteServer
 
-# Register your models here.
+admin.site.register(RemoteServer, SingletonModelAdmin)
