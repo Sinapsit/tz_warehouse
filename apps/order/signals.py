@@ -9,7 +9,7 @@ from configuration.models import RemoteServer
 def save_order(sender, instance, **kwargs):
     server = RemoteServer.get_solo()
     if server.url:
-        connector = BaseConnector(instance.id)
+        connector = BaseConnector(instance.id, server.url)
         if kwargs["created"]:
             pass
             # connector.create_order()
