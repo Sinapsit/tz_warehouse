@@ -8,7 +8,6 @@ from exchange.connector import BaseConnector
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         'number',
-        'user',
         'created',
         'modified',
     ]
